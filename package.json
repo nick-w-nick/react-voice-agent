@@ -3,7 +3,8 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "build": "rm -rf dist && tsc"
+    "build": "rm -rf dist && tsc",
+    "start": "node dist/index.js"
   },
   "types": "dist/types",
   "main": "dist/index.js",
