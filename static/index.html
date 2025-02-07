@@ -116,7 +116,8 @@
             try {
 
                 // handle output -> speaker stuff
-                const ws = new WebSocket("ws://localhost:3000/ws");
+                const wsUrl = window.location.origin.replace(/^http/, 'ws') + "/ws";
+                const ws = new WebSocket(wsUrl);
 
                 const audioPlayer = new Player();
                 audioPlayer.init(24000);
