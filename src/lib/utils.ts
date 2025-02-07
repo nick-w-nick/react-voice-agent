@@ -8,7 +8,7 @@ export async function* mergeStreams<T>(
 ): AsyncGenerator<[string, T]> {
   // start the first iteration of each output iterator
   const tasks = new Map(
-    Object.entries(streams).map(([key, stream], i) => {
+    Object.entries(streams).map(([key, stream], _i) => {
       return [key, stream.next().then((result) => ({ key, stream, result }))];
     })
   );

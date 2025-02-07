@@ -6,8 +6,8 @@ import { Hono } from "hono";
 import { createNodeWebSocket } from "@hono/node-ws";
 import { serveStatic } from "@hono/node-server/serve-static";
 
-import { OpenAIVoiceReactAgent } from "./lib/langchain_openai_voice";
-import { INSTRUCTIONS } from "./prompt";
+import { OpenAIVoiceReactAgent } from "./lib/langchain_openai_voice.js";
+import { INSTRUCTIONS } from "./prompt.js";
 // import { TOOLS } from "./tools";
 
 const app = new Hono();
@@ -19,8 +19,8 @@ app.use("/static/*", serveStatic({ root: "./" }));
 
 app.get(
   "/ws",
-  upgradeWebSocket((c) => ({
-    onOpen: async (c, ws) => {
+  upgradeWebSocket((_c) => ({
+    onOpen: async (_c, ws) => {
       if (!process.env.OPENAI_API_KEY) {
         return ws.close();
       }

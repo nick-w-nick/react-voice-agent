@@ -1,6 +1,6 @@
 import WebSocket from "ws";
 import { StructuredTool } from "@langchain/core/tools";
-import { mergeStreams, createStreamFromWebsocket } from "./utils";
+import { mergeStreams, createStreamFromWebsocket } from "./utils.js";
 import { zodToJsonSchema } from "zod-to-json-schema";
 
 const DEFAULT_MODEL = "gpt-4o-realtime-preview";
