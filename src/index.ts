@@ -10,7 +10,7 @@ import { OpenAIVoiceReactAgent } from "./lib/langchain_openai_voice.js";
 import { INSTRUCTIONS } from "./prompt.js";
 // import { TOOLS } from "./tools";
 
-const app = new Hono();
+const app = new Hono().basePath('/api');
 
 const { injectWebSocket, upgradeWebSocket } = createNodeWebSocket({ app });
 
