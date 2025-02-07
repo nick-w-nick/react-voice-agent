@@ -8,7 +8,7 @@ import { serveStatic } from "@hono/node-server/serve-static";
 
 import { OpenAIVoiceReactAgent } from "./lib/langchain_openai_voice";
 import { INSTRUCTIONS } from "./prompt";
-import { TOOLS } from "./tools";
+// import { TOOLS } from "./tools";
 
 const app = new Hono();
 
@@ -26,7 +26,6 @@ app.get(
       }
       const agent = new OpenAIVoiceReactAgent({
         instructions: INSTRUCTIONS,
-        tools: TOOLS,
         model: "gpt-4o-realtime-preview",
       });
       await agent.connect(ws.raw as WebSocket, ws.send.bind(ws));
