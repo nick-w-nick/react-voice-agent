@@ -17,6 +17,11 @@ const { injectWebSocket, upgradeWebSocket } = createNodeWebSocket({ app });
 app.use("/", serveStatic({ path: "./static/index.html" }));
 app.use("/static/*", serveStatic({ root: "./" }));
 
+app.get('/health-check', (_c): Response => {
+  const response = new Response('OK', {});
+  return response;
+});
+
 app.get(
   "/ws",
   upgradeWebSocket((_c) => ({
